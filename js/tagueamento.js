@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-//    console.log('teste');
+    console.log('teste');
 
     // Function to send events to google analitycs
     function analyticsEvents(e, eventCategory, eventAction, eventLabel) {
@@ -24,16 +24,38 @@ $(document).ready(function() {
     });
 
     $("#lorem").click(function(){
-        analyticsEvents(event, "analise", "ver_mais", "Lorem")
+        analyticsEvents(event, "analise", "ver_mais", "Lorem");
     });
 
     $("#ipsum").click(function(){
-        analyticsEvents(event, "analise", "ver_mais", "Ipsum")
+        analyticsEvents(event, "analise", "ver_mais", "Ipsum");
     });
 
     $("#dolor").click(function(){
-        analyticsEvents(event, "analise", "ver_mais", "Dolor")
+        analyticsEvents(event, "analise", "ver_mais", "Dolor");
     });
+
+    $("input#nome").focusout(function() {
+        analyticsEvents(event, "contato", "nome", "preencheu");
+    });
+
+    $("input#email").focusout(function() {
+        analyticsEvents(event, "contato", "email", "preencheu");
+    });
+
+    $("input#telefone").focusout(function() {
+        analyticsEvents(event, "contato", "telefone", "preencheu");
+    });
+
+    $('#aceito').click(function() {
+        if ($(this).is(':checked')) {
+            analyticsEvents(event, "contato", "aceito", "preencheu")
+        }
+    });
+
+    $(document).submit(function() {
+        analyticsEvents(event, "contato", "enviado", "enviado")
+    })
 
 });
 
