@@ -15,7 +15,7 @@ $(document).ready(function() {
       ga('send', 'event', eventCategory, eventAction, eventLabel);
     }
 
-    $("#contato").click(function(){
+    $("#contatoPage").click(function(){
         analyticsEvents(event, "menu", "entre_em_contato", "link_externo");
     });
 
